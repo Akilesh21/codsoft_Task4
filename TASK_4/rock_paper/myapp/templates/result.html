@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock, Paper, Scissors - Result</title>
+    <style>
+        /* Internal CSS for background */
+        body {
+            background: linear-gradient(to bottom, #4A90E2, #125D98);
+            margin: 0;
+            padding: 0;
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Center the content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Internal CSS for fonts */
+        h1 {
+            font-size: 36px;
+            color: white;
+            margin: 20px;
+        }
+
+        /* Internal CSS for result box */
+        .result-box {
+            background-color: #FFC300;
+            color: #333;
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        /* Internal CSS for the "Play Again" button */
+        .play-again-button {
+            background-color: #FFC300;
+            color: #333;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .play-again-button:hover {
+            background-color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rock, Paper, Scissors</h1>
+        <h2>Your Choice: {{ user_choice }}</h2>
+        <h2>Computer's Choice: {{ computer_choice }}</h2>
+        <h1>{{ result }}</h1>
+        <a class="play-again-button" href="{% url 'index' %}">Play Again</a>
+    </div>
+</body>
+</html>

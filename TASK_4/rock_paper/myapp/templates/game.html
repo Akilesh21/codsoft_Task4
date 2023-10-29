@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rock, Paper, Scissors</title>
+    <style>
+        /* Internal CSS for background */
+        body {
+            background: linear-gradient(to bottom, #4A90E2, #125D98);
+            margin: 0;
+            padding: 0;
+            font-family: 'Pacifico', cursive;
+        }
+
+        /* Center the content */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Internal CSS for fonts */
+        h1 {
+            font-size: 48px;
+            color: white;
+            margin: 20px;
+        }
+
+        /* Internal CSS for "Choose" label */
+        label {
+            font-size: 24px;
+            color: white;
+            margin: 10px;
+        }
+
+        /* Internal CSS for buttons */
+        button {
+            background-color: #FFC300;
+            color: #333;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            height: 40px;
+        }
+
+        button:hover {
+            background-color: #FFD700;
+        }
+
+        /* Internal CSS for icons */
+        .icon-rock:before {
+            content: "\1F91C";
+        }
+
+        .icon-paper:before {
+            content: "\1F91A";
+        }
+
+        .icon-scissors:before {
+            content: "\2702";
+        }
+
+        /* Internal CSS for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Internal CSS for applying the animation */
+        .element {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Internal CSS for game instructions and feedback */
+        .game-info {
+            font-size: 20px;
+            color: white;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rock, Paper, Scissors</h1>
+        <form method="post" action="{% url 'play' %}">
+            {% csrf_token %}
+            <label for="user_choice">Choose: </label>
+            <select id="user_choice" name="user_choice">
+                <option value="Rock">Rock</option>
+                <option value="Paper">Paper</option>
+                <option value="Scissors">Scissors</option>
+            </select>
+            <button type="submit">Play</button>
+        </form>
+        <!-- Using icons -->
+        <div class="icon-rock element"></div>
+        <div class="icon-paper element"></div>
+        <div class="icon-scissors element"></div>
+        <!-- Game instructions and feedback -->
+        <p class="game-info">
+            <span class="icon-rock element"></span> Rock beats <span class="icon-scissors element"></span> Scissors. <br>
+            <span class="icon-paper element"></span> Paper beats <span class="icon-rock element"></span> Rock. <br>
+            <span class="icon-scissors element"></span> Scissors beats <span class="icon-paper element"></span> Paper. <br>
+            Choose your weapon and click "Play" to challenge the computer!
+        </p>
+    </div>
+</body>
+</html>
